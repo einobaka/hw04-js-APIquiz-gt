@@ -17,14 +17,17 @@ var testVariables = {
 firstQuestion.textContent = [testVariables.varOne, testVariables.varTwo];
 outQuestion.append(firstQuestion);
 
+
 var arrayz = ["Answer 1", "answer 2", "answer 3"];
-
 var answerList = document.createElement("li");
-answerList.textContent = arrays;
+answerList.textContent = arrayz;
+outAnswer.appendChild(answerList);
+outAnswer.setAttribute("class", "list-group-item");
+// yes you can use BOOTSTRAP HERE!!!
 
 
 
-
+console.log(answerList);
 console.log(firstQuestion);
 
 
