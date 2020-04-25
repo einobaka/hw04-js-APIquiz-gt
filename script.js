@@ -17,6 +17,12 @@ var testVariables = {
 firstQuestion.textContent = [testVariables.varOne, testVariables.varTwo];
 outQuestion.append(firstQuestion);
 
+var arrayz = ["Answer 1", "answer 2", "answer 3"];
+
+var answerList = document.createElement("li");
+answerList.textContent = arrays;
+
+
 
 
 console.log(firstQuestion);
