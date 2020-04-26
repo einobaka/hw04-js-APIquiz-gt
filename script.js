@@ -4,7 +4,7 @@ var outHiTimer = document.querySelector("#timer");
 var outScore = document.querySelector("#score");
 var outHiScore = document.querySelector("#hiscore");
 var outQuestion = document.querySelector("#question");
-var outAnswer = document.querySelector("#answer");
+var outAnswer = document.querySelector("#answerblock");
 var outResult = document.querySelector("#result");
 
 
@@ -17,51 +17,51 @@ var qAndA = {
     fourthAnswer: "",
 
     qAndAOne: function () {
-        qAndA.firstQuestion = "question test ";
-        qAndA.firstAnswer = "answer 1 ";
-        qAndA.secondAnswer = "answer 2 ";
-        qAndA.thirdAnswer = "answer 3 ";
-        qAndA.fourthAnswer = "answer 4 ";
+        qAndA.firstQuestion = "question test 0 ";
+        qAndA.firstAnswer = "answer 1-0 ";
+        qAndA.secondAnswer = "answer 2-0 ";
+        qAndA.thirdAnswer = "answer 3-0 ";
+        qAndA.fourthAnswer = "answer 4-0 ";
 
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer + qAndA.correctAnswer;
     },
 
     qAndATwo: function () {
-        qAndA.firstQuestion = "question test 2 ";
-        qAndA.firstAnswer = "answer 1 3 ";
-        qAndA.secondAnswer = "answer 2 4 ";
-        qAndA.thirdAnswer = "answer 3 5 ";
-        qAndA.fourthAnswer = "answer 4 6 ";
+        qAndA.firstQuestion = "question test 1 ";
+        qAndA.firstAnswer = "answer 1-1 ";
+        qAndA.secondAnswer = "answer 2-1 ";
+        qAndA.thirdAnswer = "answer 3-1 ";
+        qAndA.fourthAnswer = "answer 4-1 ";
 
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
     },
 
     qAndAThree: function () {
-        qAndA.firstQuestion = "question test ";
-        qAndA.firstAnswer = "answer 1 ";
-        qAndA.secondAnswer = "answer 2 ";
-        qAndA.thirdAnswer = "answer 3 ";
-        qAndA.fourthAnswer = "answer 4 ";
+        qAndA.firstQuestion = "question test 2 ";
+        qAndA.firstAnswer = "answer 1-2 ";
+        qAndA.secondAnswer = "answer 2-2 ";
+        qAndA.thirdAnswer = "answer 3-2 ";
+        qAndA.fourthAnswer = "answer 4-2 ";
 
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
     },
 
     qAndAFour: function () {
-        qAndA.firstQuestion = "question test ";
-        qAndA.firstAnswer = "answer 1 ";
-        qAndA.secondAnswer = "answer 2 ";
-        qAndA.thirdAnswer = "answer 3 ";
-        qAndA.fourthAnswer = "answer 4 ";
+        qAndA.firstQuestion = "question test 3 ";
+        qAndA.firstAnswer = "answer 1-3 ";
+        qAndA.secondAnswer = "answer 2-3 ";
+        qAndA.thirdAnswer = "answer 3-3 ";
+        qAndA.fourthAnswer = "answer 4-3 ";
 
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
     },
 
     qAndAFive: function () {
-        qAndA.firstQuestion = "question test ";
-        qAndA.firstAnswer = "answer 1 ";
-        qAndA.secondAnswer = "answer 2 ";
-        qAndA.thirdAnswer = "answer 3 ";
-        qAndA.fourthAnswer = "answer 4 ";
+        qAndA.firstQuestion = "question test 4 ";
+        qAndA.firstAnswer = "answer 1-4 ";
+        qAndA.secondAnswer = "answer 2-4 ";
+        qAndA.thirdAnswer = "answer 3-4 ";
+        qAndA.fourthAnswer = "answer 4-4 ";
 
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
     },
@@ -74,7 +74,7 @@ console.log(qAndA.correctAnswer)
 
 blockOne = function () {
 
-
+    outAnswer.setAttribute("class", "list-group-item");
     console.log(qAndA.qAndAOne())
 
     outQuestion.textContent = qAndA.firstQuestion;
@@ -104,15 +104,12 @@ blockOne = function () {
 
 };
 
-
-
 blockTwo = function () {
 
     console.log(qAndA.qAndATwo())
-
+    
     outQuestion.textContent = qAndA.firstQuestion;
     outQuestion.setAttribute("class", "list-group-item list-group-item-info");
-    console.log(outQuestion);
 
     answerList1 = document.createElement("li");
     answerList1.textContent = qAndA.firstAnswer;
@@ -137,17 +134,42 @@ blockTwo = function () {
 
 };
 
+blockThree = function () {
 
+    console.log(qAndA.qAndAThree())
 
+    outQuestion.textContent = qAndA.firstQuestion;
+    outQuestion.setAttribute("class", "list-group-item list-group-item-info");
 
+    answerList1 = document.createElement("li");
+    answerList1.textContent = qAndA.firstAnswer;
+    answerList1.setAttribute("class", "list-group-item list-group-item-action");
+    outAnswer.append(answerList1);
 
+    answerList2 = document.createElement("li");
+    answerList2.textContent = qAndA.secondAnswer;
+    answerList2.setAttribute("class", "list-group-item list-group-item-action")
+    outAnswer.append(answerList2);
 
+    answerList3 = document.createElement("li");
+    answerList3.textContent = qAndA.thirdAnswer;
+    answerList3.setAttribute("class", "list-group-item list-group-item-action");
+    answerList4.setAttribute("id", "answer");
+    outAnswer.append(answerList3);
+
+    answerList4 = document.createElement("li");
+    answerList4.textContent = qAndA.fourthAnswer;
+    answerList4.setAttribute("class", "list-group-item list-group-item-action");
+    outAnswer.append(answerList4);
+
+};
 
 //answer event listener complete
 outAnswer.addEventListener("click", function (e) {
     e.preventDefault();
     console.log(e);
     e.target.setAttribute("class", "list-group-item list-group-item-action active");
+    outAnswer.setAttribute("class", "list-group-item disabled");
     if (e.target.matches("#answer")) {
         outResult.textContent = "Correct!"
         outResult.setAttribute("class", "alert alert-success")
@@ -156,7 +178,7 @@ outAnswer.addEventListener("click", function (e) {
         outResult.textContent = "Incorrect!"
         outResult.setAttribute("class", "alert alert-danger")
     };
-    outAnswer.setAttribute("class", "list-group-item list-group-item-action disabled");
+
     // clear the board after
 });
 
@@ -175,15 +197,16 @@ function askName(e) {
         while (outAnswer.hasChildNodes()) {
             outAnswer.removeChild(outAnswer.childNodes[0]);
         }
+        outAnswer.setAttribute("class", "list-group-item ");
         blockTwo();
-        // outResult.removeChild(outResult.childNode[0]);
-        // outResult.setAttribute("class", "");
-        outAnswer.setAttribute("class", "list-group-item list-group-item-action");
+        outResult.textContent = "";
+        outResult.setAttribute("class", "");
+
+
+
     };
 
 };
-
-
 //create questions and they have to be random, maybe create another questions page??
 
 // inSubmit.addEventListener("click", qAndA);
