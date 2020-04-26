@@ -6,6 +6,8 @@ var outHiScore = document.querySelector("#hiscore");
 var outQuestion = document.querySelector("#question");
 var outAnswer = document.querySelector("#answer");
 
+
+
 // var firstQuestion = outQuestion;
 // var firstQuestion = document.createElement("p");
 // var testVariables = {
@@ -43,16 +45,24 @@ var outAnswer = document.querySelector("#answer");
             outAnswer.append(answerList);
             answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block");
         };     
+        console.log(answerList);
+        console.log(outAnswer.textContent);
 
-        outAnswer.addEventListener("click", function() {       
-           
-            if (outAnswer.value === "answer1" ) {
-                alert("correct!");
-            }
-            else {
-                alert("wrong!");
-            };
-        });
+        // .addEventListener("click", function(e) {      
+                      
+        //     if (e.target === inAnswer[0]) {
+                
+        //         alert("correct!");
+        //     }
+        //     else {
+        //         alert("wrong!");
+        //     };
+        //     console.log(e.currentTarget);
+            
+            
+        // });
+        
+        
 
 
 
