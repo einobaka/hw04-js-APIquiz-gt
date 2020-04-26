@@ -6,6 +6,11 @@ var outHiScore = document.querySelector("#hiscore");
 var outQuestion = document.querySelector("#question");
 var outAnswer = document.querySelector("#answer");
 
+var inAnswerOne = document.querySelector("#answer1");
+var inAnswerTwo = document.querySelector("#answer2");
+var inAnswerThree = document.querySelector("#answer3");
+var inAnswerFour = document.querySelector("#answer4");
+
 //create buttons for answers
 
 
@@ -17,18 +22,27 @@ var qAndA = {
     thirdAnswer: "",
     fourthAnswer: "",
 
-
     qAndAOne: function () {
         qAndA.firstQuestion = "question test ";
         qAndA.firstAnswer = "answer 1 ";
         qAndA.secondAnswer = "answer 2 ";
         qAndA.thirdAnswer = "answer 3 ";
         qAndA.fourthAnswer = "answer 4 ";
+        qAndA.addEventListener("click", function(){
+
+        });
+
+
+        if (){
+            alert("picked!")
+        };
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
     },
 
+    
 
 };
+console.log(qAndA.qAndAOne())
 
 //answer block to be re-used//
 outQuestion.textContent = qAndA.firstQuestion;
@@ -59,7 +73,7 @@ outAnswer.append(answerList4);
 var correctAnswer = qAndA.firstAnswer;
 var answerArray = JSON.stringify(qAndA);
 
-console.log(qAndA.qAndAOne());
+
 console.log(qAndA.firstQuestion);
 console.log(answerArray);
 console.log(correctAnswer);
