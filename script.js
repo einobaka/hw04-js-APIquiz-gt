@@ -8,34 +8,50 @@ var outAnswer = document.querySelector("#answer");
 
 //create buttons for answers
 
+
+
 var qAndA = {
-    firstQuestion: "question 1",
-    firstAnswer: "answer 1",
-    secondAnswer: "answer 2",
-    thirdAnswer: "answer 3",
-    fourthAnswer: "answer 4"
+    firstQuestion: "",
+    firstAnswer: "",
+    secondAnswer: "",
+    thirdAnswer: "",
+    fourthAnswer: "",
 
 
-}
+    qAndAOne: function () {
+        qAndA.firstQuestion = "question test ";
+        qAndA.firstAnswer = "answer 1 ";
+        qAndA.secondAnswer = "answer 2 ";
+        qAndA.thirdAnswer = "answer 3 ";
+        qAndA.fourthAnswer = "answer 4 ";
+        return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
+    },
+
+
+};
+
+//answer block to be re-used//
+outQuestion.textContent = qAndA.firstQuestion;
+console.log(outQuestion);
 
 answerList = document.createElement("li");
-answerList.textContent = "test";
+answerList.textContent = qAndA.firstAnswer;
 answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block"); answerList.setAttribute("id", "answer1");
 outAnswer.append(answerList);
 
 answerList2 = document.createElement("li");
-answerList2.textContent = "test2";
+answerList2.textContent = qAndA.secondAnswer;
 answerList2.setAttribute("class", "btn btn-secondary btn-lg btn-block")
 answerList.setAttribute("id", "answer2");
 outAnswer.append(answerList2);
 
 answerList3 = document.createElement("li");
-answerList3.textContent = "test";
+answerList3.textContent = qAndA.thirdAnswer;
 answerList3.setAttribute("class", "btn btn-secondary btn-lg btn-block"); answerList3.setAttribute("id", "answer3");
 outAnswer.append(answerList3);
 
 answerList4 = document.createElement("li");
-answerList4.textContent = "test";
+answerList4.textContent = qAndA.fourthAnswer;
 answerList4.setAttribute("class", "btn btn-secondary btn-lg btn-block"); answerList4.setAttribute("id", "answer4");
 outAnswer.append(answerList4);
 
@@ -43,6 +59,8 @@ outAnswer.append(answerList4);
 var correctAnswer = qAndA.firstAnswer;
 var answerArray = JSON.stringify(qAndA);
 
+console.log(qAndA.qAndAOne());
+console.log(qAndA.firstQuestion);
 console.log(answerArray);
 console.log(correctAnswer);
 
