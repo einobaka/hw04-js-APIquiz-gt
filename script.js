@@ -14,9 +14,32 @@ var qAndA = {
     secondAnswer: "answer 2",
     thirdAnswer: "answer 3",
     fourthAnswer: "answer 4"
-    
-    
+
+
 }
+
+answerList = document.createElement("li");
+answerList.textContent = "test";
+answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block"); answerList.setAttribute("id", "answer1");
+outAnswer.append(answerList);
+
+answerList2 = document.createElement("li");
+answerList2.textContent = "test2";
+answerList2.setAttribute("class", "btn btn-secondary btn-lg btn-block")
+answerList.setAttribute("id", "answer2");
+outAnswer.append(answerList2);
+
+answerList3 = document.createElement("li");
+answerList3.textContent = "test";
+answerList3.setAttribute("class", "btn btn-secondary btn-lg btn-block"); answerList3.setAttribute("id", "answer3");
+outAnswer.append(answerList3);
+
+answerList4 = document.createElement("li");
+answerList4.textContent = "test";
+answerList4.setAttribute("class", "btn btn-secondary btn-lg btn-block"); answerList4.setAttribute("id", "answer4");
+outAnswer.append(answerList4);
+
+
 var correctAnswer = qAndA.firstAnswer;
 var answerArray = JSON.stringify(qAndA);
 
@@ -31,7 +54,7 @@ console.log(correctAnswer);
 //     answerList = document.createElement("li");
 //     answerList.textContent = answers;
 //     outAnswer.append(answerList);
-//     answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block");
+//     ;
 // };
 
 
