@@ -6,34 +6,84 @@ var outHiScore = document.querySelector("#hiscore");
 var outQuestion = document.querySelector("#question");
 var outAnswer = document.querySelector("#answer");
 
+// var firstQuestion = outQuestion;
+// var firstQuestion = document.createElement("p");
+// var testVariables = {
+//     varOne: "one",
+//     varTwo: "two",
+// };
+// firstQuestion.textContent = [testVariables.varOne, testVariables.varTwo];
+// outQuestion.append(firstQuestion);
 
 
-var firstQuestion = outQuestion;
-var firstQuestion = document.createElement("p");
-var testVariables = {
-    varOne: "one",
-    varTwo: "two",
-};
-firstQuestion.textContent = [testVariables.varOne, testVariables.varTwo];
-outQuestion.append(firstQuestion);
+//useable block of code for answers, just need to create the answers and let the buttons become clickable
+// questionAndAnswer()
+// function questionAndAnswer() {
+
+    // function qABlockone() {
+
+        outQuestion.textContent = "What is the question?";
+
+        var inAnswer = [
+            "answer 1", 
+            "answer 2",
+            "answer 3",
+            "answer 4",          
+        ];
+        console.log(inAnswer[0]);
+ 
 
 
-//useable block of code for answers
-var arrayz = ["Answer 1", "answer 2", "answer 3"];
-for (var i = 0; i < arrayz.length; i++) {
-    var array = arrayz[i]; // indexing arrays splits it
+        for (var i = 0; i < inAnswer.length; i++) {
 
-    var answerList = document.createElement("li");
-    answerList.textContent = array;
-    outAnswer.appendChild(answerList);
-    answerList.setAttribute("class", "container list-group-item");
-};
+            var answers = inAnswer[i]; // indexing arrays splits it
+            var userAnswer = "";
+            answerList = document.createElement("li");
+            answerList.textContent = answers;
+            outAnswer.append(answerList);
+            answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block");
+        };     
+
+        outAnswer.addEventListener("click", function() {       
+           
+            if (outAnswer.value === "answer1" ) {
+                alert("correct!");
+            }
+            else {
+                alert("wrong!");
+            };
+        });
+
+
+
+    // };
+
+    // function qABlockotwo() {
+
+    //     outQuestion.textContent = "What is the question?";
+    //     var inAnswer = ["Answer 1", "answer 2", "answer 3", "answer 4"];
+
+    //     for (var i = 0; i < inAnswer.length; i++) {
+
+    //         var answers = inAnswer[i]; // indexing arrays splits it
+
+    //         answerList = document.createElement("li");
+    //         answerList.textContent = answers;
+    //         outAnswer.appendChild(answerList);
+    //         answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block");
+    //     };
+
+
+    // };
+
+    // return qABlockone(), qABlockotwo()
+
+
+
+
+// };
 // yes you can use BOOTSTRAP HERE!!!
 
-
-
-console.log(answerList);
-console.log(firstQuestion);
 
 
 
