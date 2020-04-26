@@ -6,14 +6,7 @@ var outHiScore = document.querySelector("#hiscore");
 var outQuestion = document.querySelector("#question");
 var outAnswer = document.querySelector("#answer");
 
-var inAnswerOne = document.querySelector("#answer1");
-var inAnswerTwo = document.querySelector("#answer2");
-var inAnswerThree = document.querySelector("#answer3");
-var inAnswerFour = document.querySelector("#answer4");
-
 //create buttons for answers
-
-
 
 var qAndA = {
     firstQuestion: "",
@@ -21,6 +14,7 @@ var qAndA = {
     secondAnswer: "",
     thirdAnswer: "",
     fourthAnswer: "",
+    correctAnswer: "",
 
     qAndAOne: function () {
         qAndA.firstQuestion = "question test ";
@@ -28,35 +22,28 @@ var qAndA = {
         qAndA.secondAnswer = "answer 2 ";
         qAndA.thirdAnswer = "answer 3 ";
         qAndA.fourthAnswer = "answer 4 ";
-        qAndA.addEventListener("click", function(){
+        qAndA.correctAnswer = qAndA.firstAnswer;
 
-        });
-
-
-        if (){
-            alert("picked!")
-        };
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
     },
 
-    
-
 };
+
 console.log(qAndA.qAndAOne())
 
 //answer block to be re-used//
 outQuestion.textContent = qAndA.firstQuestion;
 console.log(outQuestion);
 
-answerList = document.createElement("li");
-answerList.textContent = qAndA.firstAnswer;
-answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block"); answerList.setAttribute("id", "answer1");
-outAnswer.append(answerList);
+answerList1 = document.createElement("li");
+answerList1.textContent = qAndA.firstAnswer;
+answerList1.setAttribute("class", "btn btn-secondary btn-lg btn-block"); answerList1.setAttribute("id", "answer1");
+outAnswer.append(answerList1);
 
 answerList2 = document.createElement("li");
 answerList2.textContent = qAndA.secondAnswer;
 answerList2.setAttribute("class", "btn btn-secondary btn-lg btn-block")
-answerList.setAttribute("id", "answer2");
+answerList2.setAttribute("id", "answer2");
 outAnswer.append(answerList2);
 
 answerList3 = document.createElement("li");
@@ -69,6 +56,35 @@ answerList4.textContent = qAndA.fourthAnswer;
 answerList4.setAttribute("class", "btn btn-secondary btn-lg btn-block"); answerList4.setAttribute("id", "answer4");
 outAnswer.append(answerList4);
 
+var inAnswerOne = document.querySelector("#answer1");
+var inAnswerTwo = document.querySelector("#answer2");
+var inAnswerThree = document.querySelector("#answer3");
+var inAnswerFour = document.querySelector("#answer4");
+
+
+outAnswer.addEventListener("click", function(e) {
+    e.target = "#answer1";
+    if (e.target === true) {
+        alert("clicked!");
+    }
+    else {
+        alert("incorrect!");
+    };
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 var correctAnswer = qAndA.firstAnswer;
 var answerArray = JSON.stringify(qAndA);
@@ -77,6 +93,7 @@ var answerArray = JSON.stringify(qAndA);
 console.log(qAndA.firstQuestion);
 console.log(answerArray);
 console.log(correctAnswer);
+console.log(inAnswerOne);
 
 
 
