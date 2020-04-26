@@ -107,7 +107,7 @@ blockOne = function () {
 blockTwo = function () {
 
     console.log(qAndA.qAndATwo())
-    
+
     outQuestion.textContent = qAndA.firstQuestion;
     outQuestion.setAttribute("class", "list-group-item list-group-item-info");
 
@@ -190,10 +190,10 @@ function askName(e) {
         blockOne();
         return inPlayer.textContent = playerName,
             inSubmit.textContent = "Next Question",
-            inSubmit.setAttribute("id", "submit2"),
+            inSubmit.setAttribute("id", "submit1"),
             console.log(playerName);
     }
-    if (e.target.matches("#submit2")) {
+    else if (e.target.matches("#submit1")) {
         while (outAnswer.hasChildNodes()) {
             outAnswer.removeChild(outAnswer.childNodes[0]);
         }
@@ -201,9 +201,17 @@ function askName(e) {
         blockTwo();
         outResult.textContent = "";
         outResult.setAttribute("class", "");
-
-
-
+        inSubmit.setAttribute("id", "submit2");
+    }
+    else if (e.target.matches("#submit2")) {
+        while (outAnswer.hasChildNodes()) {
+            outAnswer.removeChild(outAnswer.childNodes[0]);
+        }
+        outAnswer.setAttribute("class", "list-group-item ");
+        blockThree();
+        outResult.textContent = "";
+        outResult.setAttribute("class", "");
+        inSubmit.setAttribute("id", "submit3");
     };
 
 };
