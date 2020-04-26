@@ -56,35 +56,16 @@ answerList4.textContent = qAndA.fourthAnswer;
 answerList4.setAttribute("class", "btn btn-secondary btn-lg btn-block"); answerList4.setAttribute("id", "answer4");
 outAnswer.append(answerList4);
 
-var inAnswerOne = document.querySelector("#answer1");
-var inAnswerTwo = document.querySelector("#answer2");
-var inAnswerThree = document.querySelector("#answer3");
-var inAnswerFour = document.querySelector("#answer4");
 
-
-outAnswer.addEventListener("click", function(e) {
-    e.target = "#answer1";
-    if (e.target === true) {
-        alert("clicked!");
+outAnswer.addEventListener("click", function (e) {
+    if(e.target.matches("#answer1")){
+        alert("did it match?")
     }
     else {
-        alert("incorrect!");
+        alert("it did not match")
     };
-
+     
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var correctAnswer = qAndA.firstAnswer;
 var answerArray = JSON.stringify(qAndA);
@@ -93,7 +74,7 @@ var answerArray = JSON.stringify(qAndA);
 console.log(qAndA.firstQuestion);
 console.log(answerArray);
 console.log(correctAnswer);
-console.log(inAnswerOne);
+
 
 
 
