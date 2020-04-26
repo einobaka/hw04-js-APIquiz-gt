@@ -31,6 +31,7 @@ console.log(qAndA.qAndAOne())
 
 //answer block to be re-used//
 outQuestion.textContent = qAndA.firstQuestion;
+outQuestion.setAttribute("class", "list-group-item list-group-item-info");
 console.log(outQuestion);
 
 answerList1 = document.createElement("li");
@@ -64,11 +65,11 @@ outAnswer.addEventListener("click", function (e) {
     e.target.setAttribute("class", "list-group-item list-group-item-action active");
     if (e.target.matches("#answer1")) {
         outResult.textContent = "Correct!"
-        outResult.setAttribute("class", "alert alert-success")
+        outResult.setAttribute("class", "list-group-item list-group-item-success")
     }
     else {
         outResult.textContent = "Incorrect!"
-        outResult.setAttribute("class", "alert alert-danger")
+        outResult.setAttribute("class", "list-group-item list-group-item-danger")
     };
     outAnswer.setAttribute("class", "list-group-item list-group-item-action disabled");
     // clear the board after
@@ -76,22 +77,6 @@ outAnswer.addEventListener("click", function (e) {
 
 
 console.log(qAndA.firstQuestion);
-console.log(qAndA.correctAnswer);
-
-
-
-
-// for (var i = 0; i < inAnswer.length; i++) {
-//     var answers = inAnswer[i]; // indexing arrays splits it
-//     var userAnswer = "";
-//     answerList = document.createElement("li");
-//     answerList.textContent = answers;
-//     outAnswer.append(answerList);
-//     ;
-// };
-
-
-
 
 // var firstQuestion = outQuestion;
 // var firstQuestion = document.createElement("p");
