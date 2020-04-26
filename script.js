@@ -15,6 +15,7 @@ var qAndA = {
     secondAnswer: "",
     thirdAnswer: "",
     fourthAnswer: "",
+    correctAnswer: "",
 
     qAndAOne: function () {
         qAndA.firstQuestion = "question test ";
@@ -22,8 +23,10 @@ var qAndA = {
         qAndA.secondAnswer = "answer 2 ";
         qAndA.thirdAnswer = "answer 3 ";
         qAndA.fourthAnswer = "answer 4 ";
+        qAndA.correctAnswer = qAndA.firstAnswer;
 
-        return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
+
+        return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer + qAndA.correctAnswer;
     },
 
     qAndATwo: function () {
@@ -67,13 +70,14 @@ var qAndA = {
     },
 
 };
-console.log(qAndA.qAndATwo())
+console.log(qAndA.qAndAOne())
+console.log(qAndA.correctAnswer)
 
 
 
 //answer block to be re-used//
 
-qAndABlock = function () {
+qAndABlockOne = function () {
 
     outQuestion.textContent = qAndA.firstQuestion;
     outQuestion.setAttribute("class", "list-group-item list-group-item-info");
@@ -112,7 +116,7 @@ outAnswer.addEventListener("click", function (e) {
     e.preventDefault();
     console.log(e);
     e.target.setAttribute("class", "list-group-item list-group-item-action active");
-    if (e.target.matches("#answer1")) {
+    if (e.target.matches("#correct")) {
         outResult.textContent = "Correct!"
         outResult.setAttribute("class", "list-group-item list-group-item-success")
     }
@@ -221,7 +225,7 @@ inSubmit.addEventListener("click", askName);
 function askName(e) {
     if (e.target.matches("#submit")) {
         var playerName = prompt("Please enter your name.");
-        qAndABlock();
+        qAndABlockOne();
         return inPlayer.textContent = playerName,
             inSubmit.textContent = "Next Question",
             inSubmit.setAttribute("id", "submit2"),
