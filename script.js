@@ -15,7 +15,6 @@ var qAndA = {
     secondAnswer: "",
     thirdAnswer: "",
     fourthAnswer: "",
-    correctAnswer: "",
 
     qAndAOne: function () {
         qAndA.firstQuestion = "question test ";
@@ -23,9 +22,7 @@ var qAndA = {
         qAndA.secondAnswer = "answer 2 ";
         qAndA.thirdAnswer = "answer 3 ";
         qAndA.fourthAnswer = "answer 4 ";
-        qAndA.correctAnswer = qAndA.firstAnswer;
-
-
+        
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer + qAndA.correctAnswer;
     },
 
@@ -73,8 +70,6 @@ var qAndA = {
 console.log(qAndA.qAndAOne())
 console.log(qAndA.correctAnswer)
 
-
-
 //answer block to be re-used//
 
 qAndABlockOne = function () {
@@ -86,25 +81,22 @@ qAndABlockOne = function () {
     answerList1 = document.createElement("li");
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
-    answerList1.setAttribute("id", "answer1");
+    answerList1.setAttribute("id", "answer");
     outAnswer.append(answerList1);
 
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
-    answerList2.setAttribute("id", "answer2");
+    
     outAnswer.append(answerList2);
-
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
-    answerList3.setAttribute("id", "answer3");
+    
     outAnswer.append(answerList3);
-
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
-    answerList4.setAttribute("id", "answer4");
     outAnswer.append(answerList4);
 
 };
@@ -116,109 +108,17 @@ outAnswer.addEventListener("click", function (e) {
     e.preventDefault();
     console.log(e);
     e.target.setAttribute("class", "list-group-item list-group-item-action active");
-    if (e.target.matches("#correct")) {
+    if (e.target.matches("#answer")) {
         outResult.textContent = "Correct!"
-        outResult.setAttribute("class", "list-group-item list-group-item-success")
+        outResult.setAttribute("class", "alert alert-success")
     }
     else {
         outResult.textContent = "Incorrect!"
-        outResult.setAttribute("class", "list-group-item list-group-item-danger")
+        outResult.setAttribute("class", "alert alert-danger")
     };
     outAnswer.setAttribute("class", "list-group-item list-group-item-action disabled");
     // clear the board after
 });
-
-
-console.log(qAndA.firstQuestion);
-
-// var firstQuestion = outQuestion;
-// var firstQuestion = document.createElement("p");
-// var testVariables = {
-//     varOne: "one",
-//     varTwo: "two",
-// };
-// firstQuestion.textContent = [testVariables.varOne, testVariables.varTwo];
-// outQuestion.append(firstQuestion);
-
-
-//useable block of code for answers, just need to create the answers and let the buttons become clickable
-// questionAndAnswer()
-// function questionAndAnswer() {
-
-// function qABlockone() {
-
-// outQuestion.textContent = "What is the question?";
-
-
-// var inAnswer = [
-//     "answer 1", 
-//     "answer 2",
-//     "answer 3",
-//     "answer 4",          
-// ];
-// console.log(inAnswer[1]);
-// var correctAnswer = inAnswer[1];
-
-// for (var i = 0; i < inAnswer.length; i++) {
-
-//     var answers = inAnswer[i]; // indexing arrays splits it
-//     var userAnswer = "";
-//     answerList = document.createElement("li");
-//     answerList.textContent = answers;
-//     outAnswer.append(answerList);
-//     answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block");
-// };     
-// console.log(answerList);
-
-// answerList.addEventListener("click", function(e) {      
-
-//     if (e.target === correctAnswer) {
-
-//         alert("correct!");
-//     }
-//     else {
-//         alert("wrong!");
-//     };
-//     console.log(e.currentTarget);
-
-
-// });
-
-
-
-
-
-// };
-
-// function qABlockotwo() {
-
-//     outQuestion.textContent = "What is the question?";
-//     var inAnswer = ["Answer 1", "answer 2", "answer 3", "answer 4"];
-
-//     for (var i = 0; i < inAnswer.length; i++) {
-
-//         var answers = inAnswer[i]; // indexing arrays splits it
-
-//         answerList = document.createElement("li");
-//         answerList.textContent = answers;
-//         outAnswer.appendChild(answerList);
-//         answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block");
-//     };
-
-
-// };
-
-// return qABlockone(), qABlockotwo()
-
-
-
-
-// };
-// yes you can use BOOTSTRAP HERE!!!
-
-
-
-
 
 // Grab player information and store it later
 inSubmit.addEventListener("click", askName);
@@ -232,7 +132,7 @@ function askName(e) {
             console.log(playerName);
     }
     if (e.target.matches("#submit2")) {
-        alert("next question!");
+        qAndABlockTwo();
     };
 
 
