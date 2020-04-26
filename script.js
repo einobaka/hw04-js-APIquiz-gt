@@ -6,6 +6,35 @@ var outHiScore = document.querySelector("#hiscore");
 var outQuestion = document.querySelector("#question");
 var outAnswer = document.querySelector("#answer");
 
+//create buttons for answers
+
+var qAndA = {
+    firstQuestion: "question 1",
+    firstAnswer: "answer 1",
+    secondAnswer: "answer 2",
+    thirdAnswer: "answer 3",
+    fourthAnswer: "answer 4"
+    
+    
+}
+var correctAnswer = qAndA.firstAnswer;
+var answerArray = JSON.stringify(qAndA);
+
+console.log(answerArray);
+console.log(correctAnswer);
+
+
+
+// for (var i = 0; i < inAnswer.length; i++) {
+//     var answers = inAnswer[i]; // indexing arrays splits it
+//     var userAnswer = "";
+//     answerList = document.createElement("li");
+//     answerList.textContent = answers;
+//     outAnswer.append(answerList);
+//     answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block");
+// };
+
+
 
 
 // var firstQuestion = outQuestion;
@@ -24,17 +53,17 @@ var outAnswer = document.querySelector("#answer");
 
     // function qABlockone() {
 
-        outQuestion.textContent = "What is the question?";
+        // outQuestion.textContent = "What is the question?";
 
-        
-        var inAnswer = [
-            "answer 1", 
-            "answer 2",
-            "answer 3",
-            "answer 4",          
-        ];
-        console.log(inAnswer[1]);
-        var correctAnswer = inAnswer[1];
+
+        // var inAnswer = [
+        //     "answer 1", 
+        //     "answer 2",
+        //     "answer 3",
+        //     "answer 4",          
+        // ];
+        // console.log(inAnswer[1]);
+        // var correctAnswer = inAnswer[1];
 
         // for (var i = 0; i < inAnswer.length; i++) {
 
@@ -46,22 +75,22 @@ var outAnswer = document.querySelector("#answer");
         //     answerList.setAttribute("class", "btn btn-secondary btn-lg btn-block");
         // };     
         // console.log(answerList);
-        
-        answerList.addEventListener("click", function(e) {      
-                      
-            if (e.target === correctAnswer) {
-                
-                alert("correct!");
-            }
-            else {
-                alert("wrong!");
-            };
-            console.log(e.currentTarget);
-            
-            
-        });
-        
-        
+
+        // answerList.addEventListener("click", function(e) {      
+
+        //     if (e.target === correctAnswer) {
+
+        //         alert("correct!");
+        //     }
+        //     else {
+        //         alert("wrong!");
+        //     };
+        //     console.log(e.currentTarget);
+
+
+        // });
+
+
 
 
 
