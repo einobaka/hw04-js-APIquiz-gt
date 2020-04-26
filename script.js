@@ -22,7 +22,7 @@ var qAndA = {
         qAndA.secondAnswer = "answer 2 ";
         qAndA.thirdAnswer = "answer 3 ";
         qAndA.fourthAnswer = "answer 4 ";
-        
+
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer + qAndA.correctAnswer;
     },
 
@@ -67,12 +67,15 @@ var qAndA = {
     },
 
 };
-console.log(qAndA.qAndAOne())
+
 console.log(qAndA.correctAnswer)
 
 //answer block to be re-used//
 
-qAndABlockOne = function () {
+blockOne = function () {
+
+
+    console.log(qAndA.qAndAOne())
 
     outQuestion.textContent = qAndA.firstQuestion;
     outQuestion.setAttribute("class", "list-group-item list-group-item-info");
@@ -87,12 +90,12 @@ qAndABlockOne = function () {
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
-    
+
     outAnswer.append(answerList2);
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
-    
+
     outAnswer.append(answerList3);
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
@@ -100,6 +103,43 @@ qAndABlockOne = function () {
     outAnswer.append(answerList4);
 
 };
+
+
+
+blockTwo = function () {
+
+    console.log(qAndA.qAndATwo())
+
+    outQuestion.textContent = qAndA.firstQuestion;
+    outQuestion.setAttribute("class", "list-group-item list-group-item-info");
+    console.log(outQuestion);
+
+    answerList1 = document.createElement("li");
+    answerList1.textContent = qAndA.firstAnswer;
+    answerList1.setAttribute("class", "list-group-item list-group-item-action");
+    outAnswer.append(answerList1);
+
+    answerList2 = document.createElement("li");
+    answerList2.textContent = qAndA.secondAnswer;
+    answerList2.setAttribute("class", "list-group-item list-group-item-action")
+    outAnswer.append(answerList2);
+
+    answerList3 = document.createElement("li");
+    answerList3.textContent = qAndA.thirdAnswer;
+    answerList3.setAttribute("class", "list-group-item list-group-item-action");
+    outAnswer.append(answerList3);
+
+    answerList4 = document.createElement("li");
+    answerList4.textContent = qAndA.fourthAnswer;
+    answerList4.setAttribute("class", "list-group-item list-group-item-action");
+    answerList4.setAttribute("id", "answer");
+    outAnswer.append(answerList4);
+
+};
+
+
+
+
 
 
 
@@ -125,18 +165,21 @@ inSubmit.addEventListener("click", askName);
 function askName(e) {
     if (e.target.matches("#submit")) {
         var playerName = prompt("Please enter your name.");
-        qAndABlockOne();
+        blockOne();
         return inPlayer.textContent = playerName,
             inSubmit.textContent = "Next Question",
             inSubmit.setAttribute("id", "submit2"),
             console.log(playerName);
     }
     if (e.target.matches("#submit2")) {
-        qAndABlockTwo();
+        while (outAnswer.hasChildNodes()) {
+            outAnswer.removeChild(outAnswer.childNodes[0]);
+        }
+        blockTwo();
+        // outResult.removeChild(outResult.childNode[0]);
+        // outResult.setAttribute("class", "");
+        outAnswer.setAttribute("class", "list-group-item list-group-item-action");
     };
-
-
-
 
 };
 
