@@ -91,18 +91,21 @@ blockOne = function () {
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
     outAnswer.append(answerList2);
+    answerList2.setAttribute("id", "incorrect");
 
     // Answer block one - answer 3
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList3);
+    answerList3.setAttribute("id", "incorrect");
 
     // Answer block one - answer 4
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList4);
+    answerList4.setAttribute("id", "incorrect");
 
 };
 
@@ -118,18 +121,21 @@ blockTwo = function () {
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList1);
+    answerList1.setAttribute("id", "incorrect");
 
     // Answer block two - answer 2
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
     outAnswer.append(answerList2);
+    answerList2.setAttribute("id", "incorrect");
 
     // Answer block two - answer 3
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList3);
+    answerList3.setAttribute("id", "incorrect");
 
     // Answer block two - answer 4
     answerList4 = document.createElement("li");
@@ -153,12 +159,14 @@ blockThree = function () {
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList1);
+    answerList1.setAttribute("id", "incorrect");
 
     // Answer block three - answer 2
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
     outAnswer.append(answerList2);
+    answerList2.setAttribute("id", "incorrect");
 
     // Answer block three - answer 3
     answerList3 = document.createElement("li");
@@ -173,6 +181,7 @@ blockThree = function () {
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList4);
+    answerList4.setAttribute("id", "incorrect");
 
 };
 
@@ -188,6 +197,7 @@ blockFour = function () {
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList1);
+    answerList1.setAttribute("id", "incorrect");
 
     // Answer block four - answer 2
     answerList2 = document.createElement("li");
@@ -202,12 +212,14 @@ blockFour = function () {
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList3);
+    answerList3.setAttribute("id", "incorrect");
 
     // Answer block four - answer 4
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList4);
+    answerList4.setAttribute("id", "incorrect");
 
 };
 
@@ -223,6 +235,7 @@ blockFive = function () {
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList1);
+    answerList1.setAttribute("id", "incorrect");
 
     // Answer block five - answer 2
     answerList2 = document.createElement("li");
@@ -237,22 +250,16 @@ blockFive = function () {
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList3);
+    answerList3.setAttribute("id", "incorrect");
 
     // Answer block five - answer 4
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList4);
+    answerList4.setAttribute("id", "incorrect");
 
 };
-
-// var gatherPoints = {
-//     pointsOne: 0,
-//     pointsTwo: 0,
-//     pointsThree: 0,
-//     pointsFour: 0,
-//     pointsFive: 0,
-// };
 
 // Score Keeper object
 var scores = {
@@ -261,14 +268,15 @@ var scores = {
     third: 0,
     fourth: 0,
     fifth: 0,
+    total: 0,
 };
 
 // Click event listenser for answers // point addition
+
 outAnswer.addEventListener("click", function (e) {
     e.preventDefault();
     e.target.setAttribute("class", "list-group-item list-group-item-action active");
     outAnswer.setAttribute("class", "list-group-item disabled");
-
 
     userPointsOne = function () {
         if (e.target.matches("#answer1")) {
@@ -277,10 +285,6 @@ outAnswer.addEventListener("click", function (e) {
             scores.first = 20;
             return scores.first;
         }
-        // else {
-        //     outResult.textContent = "Incorrect!"
-        //     outResult.setAttribute("class", "alert alert-danger")
-        // };
     };
     userPointsOne();
 
@@ -291,11 +295,6 @@ outAnswer.addEventListener("click", function (e) {
             scores.second = 20;
             return scores.second;
         }
-        // else {
-        //     outResult.textContent = "Incorrect!"
-        //     outResult.setAttribute("class", "alert alert-danger")
-        // };
-
     };
     userPointsTwo();
 
@@ -306,10 +305,6 @@ outAnswer.addEventListener("click", function (e) {
             scores.third = 20;
             return scores.third;
         }
-        // else {
-        //     outResult.textContent = "Incorrect!"
-        //     outResult.setAttribute("class", "alert alert-danger")
-        // };
     };
     userPointsThree();
 
@@ -320,10 +315,7 @@ outAnswer.addEventListener("click", function (e) {
             scores.fourth = 20;
             return scores.fourth;
         }
-        // else {
-        //     outResult.textContent = "Incorrect!"
-        //     outResult.setAttribute("class", "alert alert-danger")
-        // };
+
     };
     userPointsFour();
 
@@ -334,19 +326,27 @@ outAnswer.addEventListener("click", function (e) {
             scores.fifth = 20;
             return scores.fifth;
         }
-        // else {
-        //     outResult.textContent = "Incorrect!"
-        //     outResult.setAttribute("class", "alert alert-danger")
-        // };
     };
     userPointsFifth();
 
+    if (e.target.matches("#incorrect")) {
+        outResult.textContent = "Incorrect!"
+        outResult.setAttribute("class", "alert alert-danger")
+    };
+
+
+    // Store score
+    var playerScore = scores.first + scores.second + scores.third + scores.fourth + scores.fifth;
+    console.log(playerScore);
+    outScore.textContent = "SCORE: " + playerScore;
+    scores.total = playerScore;
+    return scores.total;
+
 });
 
-// Store score
-var playerScore = scores.first + scores.second + scores.third + scores.fourth + scores.fifth;
-// console.log(playerScore);
-outScore.textContent = "SCORE: " + playerScore;
+console.log(scores.total);
+
+
 
 // Timer for the quiz
 var secondsLeft = 61;
