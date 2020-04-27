@@ -84,7 +84,7 @@ blockOne = function () {
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList1);
     // Correct answer insert
-    answerList1.setAttribute("id", "answer");
+    answerList1.setAttribute("id", "answer1");
 
     // Answer block one - answer 2
     answerList2 = document.createElement("li");
@@ -137,7 +137,7 @@ blockTwo = function () {
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList4);
     // Correct answer insert
-    answerList4.setAttribute("id", "answer");
+    answerList4.setAttribute("id", "answer2");
     score.second = 20;
 
 };
@@ -167,7 +167,7 @@ blockThree = function () {
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList3);
     // Correct answer insert
-    answerList3.setAttribute("id", "answer");
+    answerList3.setAttribute("id", "answer3");
     score.third = 20;
 
     // Answer block three - answer 4
@@ -197,7 +197,7 @@ blockFour = function () {
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
     outAnswer.append(answerList2);
     // Correct answer insert
-    answerList2.setAttribute("id", "answer");
+    answerList2.setAttribute("id", "answer4");
 
     // Answer block four - answer 3
     answerList3 = document.createElement("li");
@@ -232,7 +232,7 @@ blockFive = function () {
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
     // Correct answer insert
     outAnswer.append(answerList2);
-    answerList2.setAttribute("id", "answer");
+    answerList2.setAttribute("id", "answer5");
     answerList2.value = 20;
 
     // Answer block five - answer 3
@@ -249,28 +249,135 @@ blockFive = function () {
 
 };
 
+// var gatherPoints = {
+//     pointsOne: 0,
+//     pointsTwo: 0,
+//     pointsThree: 0,
+//     pointsFour: 0,
+//     pointsFive: 0,
+// };
+
+// Score Keeper object
+var scores = {
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0,
+    fifth: 0,
+};
+
 // Click event listenser for answers // point addition
 outAnswer.addEventListener("click", function (e) {
     e.preventDefault();
     e.target.setAttribute("class", "list-group-item list-group-item-action active");
     outAnswer.setAttribute("class", "list-group-item disabled");
 
-    if (e.target.matches("#answer")) {
-        outResult.textContent = "Correct!";
-        outResult.setAttribute("class", "alert alert-success");
-        var points = "";
-        for (let i = 0; i < 1; i++) {
-            points += 20;
+
+    userPointsOne = function () {
+        if (e.target.matches("#answer1")) {
+            outResult.textContent = "Correct!";
+            outResult.setAttribute("class", "alert alert-success");
+            scores.first = 20;
+            return scores.first;
         }
-        outScore.textContent = points;
-        console.log(points);
-    }
-    else {
-        outResult.textContent = "Incorrect!"
-        outResult.setAttribute("class", "alert alert-danger")
-    }
+        else {
+            outResult.textContent = "Incorrect!"
+            outResult.setAttribute("class", "alert alert-danger")
+        };
+    };
+    userPointsOne();
+
+    userPointsTwo = function () {
+        if (e.target.matches("#answer2")) {
+            outResult.textContent = "Correct!";
+            outResult.setAttribute("class", "alert alert-success");
+            scores.second = 20;
+            return scores.second;
+        }
+        else {
+            outResult.textContent = "Incorrect!"
+            outResult.setAttribute("class", "alert alert-danger")
+        };
+
+    };
+    userPointsTwo();
+
+    userPointsThree = function () {
+        if (e.target.matches("#answer3")) {
+            outResult.textContent = "Correct!";
+            outResult.setAttribute("class", "alert alert-success");
+            scores.third = 20;
+            return scores.third;
+        }
+        else {
+            outResult.textContent = "Incorrect!"
+            outResult.setAttribute("class", "alert alert-danger")
+        };
+    };
+    userPointsThree();
+
+    userPointsFour = function () {
+        if (e.target.matches("#answer4")) {
+            outResult.textContent = "Correct!";
+            outResult.setAttribute("class", "alert alert-success");
+            scores.fourth = 20;
+            return scores.fourth;
+        }
+        else {
+            outResult.textContent = "Incorrect!"
+            outResult.setAttribute("class", "alert alert-danger")
+        };
+    };
+    userPointsFour();
+
+    userPointsFifth = function () {
+        if (e.target.matches("#answer5")) {
+            outResult.textContent = "Correct!";
+            outResult.setAttribute("class", "alert alert-success");
+            scores.fifth = 20;
+            return scores.fifth;
+        }
+        else {
+            outResult.textContent = "Incorrect!"
+            outResult.setAttribute("class", "alert alert-danger")
+        };
+    };
+    userPointsFifth();
+
+
+    var playerScore = scores.first + scores.second + scores.third + scores.fourth + scores.fifth;
+    console.log(playerScore);
+
+    //     else if (e.target.matches("#answer3")) {
+    //     outResult.textContent = "Correct!";
+    //     outResult.setAttribute("class", "alert alert-success");
+    //     gatherPoints.pointsThree = 20;
+    //     return gatherPoints.pointsThree;
+    // }
+    // else if (e.target.matches("#answer4")) {
+    //     outResult.textContent = "Correct!";
+    //     outResult.setAttribute("class", "alert alert-success");
+    //     gatherPoints.pointsFour = 20;
+    //     return gatherPoints.pointsFour;
+    // }
+    // else if (e.target.matches("#answer5")) {
+    //     outResult.textContent = "Correct!";
+    //     outResult.setAttribute("class", "alert alert-success");
+    //     gatherPoints.pointsFive = 20;
+    //     return gatherPoints.pointsFive;
+    // }
+
+    // }
+
+
+    // userPoints();
+
+
 
 });
+// var totalPoints = gatherPoints.pointsOne + gatherPoints.pointsTwo + gatherPoints.pointsThree + gatherPoints.pointsFour + gatherPoints.pointsFive;
+// console.log(gatherPoints.pointsOne);
+
 
 // Timer for the quiz
 var secondsLeft = 61;
@@ -291,19 +398,22 @@ function screenTimer() {
 };
 
 // Game start where user hits "submit" and kicks off the game
+var player = {
+    name: "",
+};
 inSubmit.addEventListener("click", gameStart);
 function gameStart(e) {
     // First question block and player name for storage
-    var theName = playerName;
+
     if (e.target.matches("#submit")) {
-        var playerName = prompt("Please enter your name.");
+        player.name = prompt("Please enter your name.");
         blockOne();
         theTimer()
-        return inPlayer.textContent = playerName,
+        return inPlayer.textContent = player.name,
             inSubmit.textContent = "Next Question",
             inSubmit.setAttribute("id", "submit1"),
-            console.log(playerName),
-            playerName;
+            console.log(player.name),
+            player.name;
     }
     // Second question block
     else if (e.target.matches("#submit1")) {
@@ -362,29 +472,13 @@ function gameStart(e) {
         outQuestion.setAttribute("class", "")
         outQuestion.textContent = "";
         outAnswer.setAttribute("class", "");
-        outResult.setAttribute("class", "");
-        outResult.textContent = theName;
-
-        // clearScreen = function () {
-
-        //     while (outAnswer.hasChildNodes()) {
-        //         outAnswer.removeChild(outAnswer.childNodes[0]);
-        //     }
-        //     clearInterval(timerInterval);
-        //     outAnswer.setAttribute("class", "");
-        //     outQuestion.setAttribute("class", "")
-        //     outQuestion.textContent = "";
-        //     outResult.setAttribute("class", "")
-        //     outResult.textContent = "";
-        //     return inSubmit.textContent = "RESULTS",
-        //         inSubmit.setAttribute("id", "results");
-        // };
-        // clearScreen();
-
-
+        outResult.setAttribute("class", "text-center");
+        outResult.textContent = player.name;
+        outResult.append.textContent = player.name;
     };
 
 };
+console.log(player.name);
 
 
 
