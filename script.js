@@ -17,11 +17,11 @@ var qAndA = {
     fourthAnswer: "",
 
     qAndAOne: function () {
-        qAndA.firstQuestion = "question test 1 ";
-        qAndA.firstAnswer = "answer 1-1 ";
-        qAndA.secondAnswer = "answer 2-1 ";
-        qAndA.thirdAnswer = "answer 3-1 ";
-        qAndA.fourthAnswer = "answer 4-1 ";
+        qAndA.firstQuestion = "Which of the following will allow a new element to be added into the HTML document? ";
+        qAndA.firstAnswer = ".append ";
+        qAndA.secondAnswer = ".repair ";
+        qAndA.thirdAnswer = ".additionally ";
+        qAndA.fourthAnswer = ".contrast ";
 
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer + qAndA.correctAnswer;
     },
@@ -68,10 +68,8 @@ var qAndA = {
 
 };
 
-console.log(qAndA.correctAnswer)
-
-//answer block to be re-used//
-
+var qOnePoints = "";
+//Answer blocks for the quiz
 blockOne = function () {
 
     outAnswer.setAttribute("class", "list-group-item");
@@ -85,28 +83,38 @@ blockOne = function () {
     answerList1 = document.createElement("li");
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
-    answerList1.setAttribute("id", "answer");
     outAnswer.append(answerList1);
+    // Correct answer insert
+    answerList1.setAttribute("id", "answer");
+    qOnePoints = 20;
 
     // Answer block one - answer 2
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
+    outAnswer.append(answerList2);
+    qOnePoints = -20;
 
     // Answer block one - answer 3
-    outAnswer.append(answerList2);
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
+    outAnswer.append(answerList3);
+    qOnePoints = -20;
 
     // Answer block one - answer 4
-    outAnswer.append(answerList3);
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList4);
+    qOnePoints = -20;
+    
+    return qOnePoints;
+    
 
 };
+console.log(qOnePoints);
+
 
 blockTwo = function () {
 
@@ -248,31 +256,22 @@ blockFive = function () {
 
 };
 
-//answer event listener complete
-var points = [];
-
 outAnswer.addEventListener("click", function (e) {
     e.preventDefault();
-  
+
     e.target.setAttribute("class", "list-group-item list-group-item-action active");
     outAnswer.setAttribute("class", "list-group-item disabled");
-  
+
     if (e.target.matches("#answer")) {
         outResult.textContent = "Correct!";
         outResult.setAttribute("class", "alert alert-success");
-        eachPoint = 20;
-        eachpoint++;
-        points    
 
     }
     else {
         outResult.textContent = "Incorrect!"
         outResult.setAttribute("class", "alert alert-danger")
-        // var points = 20;
-        // points--;
-        // userPoints = points;
-    };
 
+    };
 });
 
 
@@ -286,6 +285,7 @@ function gameStart(e) {
     if (e.target.matches("#submit")) {
         var playerName = prompt("Please enter your name.");
         blockOne();
+        // scoreKeeper();
         return inPlayer.textContent = playerName,
             inSubmit.textContent = "Next Question",
             inSubmit.setAttribute("id", "submit1"),
