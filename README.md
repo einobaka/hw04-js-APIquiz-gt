@@ -11,14 +11,14 @@ This homework was tough, I did not get all the functionality correctly. Missing 
 
 Screenshot of the game started:
 
-![Start Game](./assets/start.png)
+![Start Game](https://github.com/einobaka/hw04-js-APIquiz-gt/blob/master//assets/start.png)
 
 Screenshot of the game when there is a correct answer:
 
-![Correct Answer](./assets/correct.png)
+![Correct Answer](https://github.com/einobaka/hw04-js-APIquiz-gt/blob/master//assets/correct.png)
 
 Screenshot of the game when there is an incorrect answer:
 
-![Incorrect Answer](./assets/incorrect.png)
+![Incorrect Answer](https://github.com/einobaka/hw04-js-APIquiz-gt/blob/master//assets/incorrect.png)
 
 
