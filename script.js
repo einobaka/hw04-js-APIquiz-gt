@@ -76,26 +76,30 @@ blockOne = function () {
 
     outAnswer.setAttribute("class", "list-group-item");
     console.log(qAndA.qAndAOne())
-
+    // Question one
     outQuestion.textContent = qAndA.firstQuestion;
     outQuestion.setAttribute("class", "list-group-item list-group-item-info");
     console.log(outQuestion);
 
+    // Answer block one - answer 1
     answerList1 = document.createElement("li");
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
     answerList1.setAttribute("id", "answer");
     outAnswer.append(answerList1);
 
+    // Answer block one - answer 2
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
 
+    // Answer block one - answer 3
     outAnswer.append(answerList2);
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
 
+    // Answer block one - answer 4
     outAnswer.append(answerList3);
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
@@ -107,25 +111,29 @@ blockOne = function () {
 blockTwo = function () {
 
     console.log(qAndA.qAndATwo())
-
+    // Question two
     outQuestion.textContent = qAndA.firstQuestion;
     outQuestion.setAttribute("class", "list-group-item list-group-item-info");
 
+    // Answer block two - answer 1
     answerList1 = document.createElement("li");
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList1);
 
+    // Answer block two - answer 2
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
     outAnswer.append(answerList2);
 
+    // Answer block two - answer 3
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList3);
 
+    // Answer block two - answer 4
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
@@ -138,20 +146,23 @@ blockTwo = function () {
 blockThree = function () {
 
     console.log(qAndA.qAndAThree())
-
+    // Question three
     outQuestion.textContent = qAndA.firstQuestion;
     outQuestion.setAttribute("class", "list-group-item list-group-item-info");
 
+    // Answer block three - answer 1
     answerList1 = document.createElement("li");
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList1);
 
+    // Answer block three - answer 2
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
     outAnswer.append(answerList2);
 
+    // Answer block three - answer 3
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
@@ -159,6 +170,7 @@ blockThree = function () {
     // Correct answer insert
     answerList3.setAttribute("id", "answer");
 
+    // Answer block three - answer 4
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
@@ -173,13 +185,13 @@ blockFour = function () {
     outQuestion.textContent = qAndA.firstQuestion;
     outQuestion.setAttribute("class", "list-group-item list-group-item-info");
 
-    // Answer block four - 1
+    // Answer block four - answer 1
     answerList1 = document.createElement("li");
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList1);
 
-    // Answer block four - 2
+    // Answer block four - answer 2
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
@@ -187,13 +199,13 @@ blockFour = function () {
     // Correct answer insert
     answerList2.setAttribute("id", "answer");
 
-    // Answer block four - 3
+    // Answer block four - answer 3
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList3);
 
-    // Answer block four - 4
+    // Answer block four - answer 4
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
@@ -208,13 +220,13 @@ blockFive = function () {
     outQuestion.textContent = qAndA.firstQuestion;
     outQuestion.setAttribute("class", "list-group-item list-group-item-info");
 
-    // Answer block five - 1
+    // Answer block five - answer 1
     answerList1 = document.createElement("li");
     answerList1.textContent = qAndA.firstAnswer;
     answerList1.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList1);
 
-    // Answer block five - 2
+    // Answer block five - answer 2
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
@@ -222,13 +234,13 @@ blockFive = function () {
     answerList2.setAttribute("id", "answer");
     outAnswer.append(answerList2);
 
-    // Answer block five - 3
+    // Answer block five - answer 3
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList3);
 
-    // Answer block five - 4
+    // Answer block five - answer 4
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
@@ -237,31 +249,37 @@ blockFive = function () {
 };
 
 //answer event listener complete
+var points = [];
 
 outAnswer.addEventListener("click", function (e) {
-    var userPoints = "";
     e.preventDefault();
-    console.log(e);
+  
     e.target.setAttribute("class", "list-group-item list-group-item-action active");
     outAnswer.setAttribute("class", "list-group-item disabled");
+  
     if (e.target.matches("#answer")) {
-        outResult.textContent = "Correct!"
-        outResult.setAttribute("class", "alert alert-success")
-        userPoints += 20;
+        outResult.textContent = "Correct!";
+        outResult.setAttribute("class", "alert alert-success");
+        eachPoint = 20;
+        eachpoint++;
+        points    
+
     }
     else {
         outResult.textContent = "Incorrect!"
         outResult.setAttribute("class", "alert alert-danger")
-        userPoints -= 20;
+        // var points = 20;
+        // points--;
+        // userPoints = points;
     };
-    
-    
+
 });
 
 
 
 
 // Grab player information and store it later
+
 inSubmit.addEventListener("click", gameStart);
 function gameStart(e) {
     //First question block and player name for storage
