@@ -138,7 +138,6 @@ blockTwo = function () {
     outAnswer.append(answerList4);
     // Correct answer insert
     answerList4.setAttribute("id", "answer2");
-    score.second = 20;
 
 };
 
@@ -168,7 +167,6 @@ blockThree = function () {
     outAnswer.append(answerList3);
     // Correct answer insert
     answerList3.setAttribute("id", "answer3");
-    score.third = 20;
 
     // Answer block three - answer 4
     answerList4 = document.createElement("li");
@@ -233,7 +231,6 @@ blockFive = function () {
     // Correct answer insert
     outAnswer.append(answerList2);
     answerList2.setAttribute("id", "answer5");
-    answerList2.value = 20;
 
     // Answer block five - answer 3
     answerList3 = document.createElement("li");
@@ -280,10 +277,10 @@ outAnswer.addEventListener("click", function (e) {
             scores.first = 20;
             return scores.first;
         }
-        else {
-            outResult.textContent = "Incorrect!"
-            outResult.setAttribute("class", "alert alert-danger")
-        };
+        // else {
+        //     outResult.textContent = "Incorrect!"
+        //     outResult.setAttribute("class", "alert alert-danger")
+        // };
     };
     userPointsOne();
 
@@ -294,10 +291,10 @@ outAnswer.addEventListener("click", function (e) {
             scores.second = 20;
             return scores.second;
         }
-        else {
-            outResult.textContent = "Incorrect!"
-            outResult.setAttribute("class", "alert alert-danger")
-        };
+        // else {
+        //     outResult.textContent = "Incorrect!"
+        //     outResult.setAttribute("class", "alert alert-danger")
+        // };
 
     };
     userPointsTwo();
@@ -309,10 +306,10 @@ outAnswer.addEventListener("click", function (e) {
             scores.third = 20;
             return scores.third;
         }
-        else {
-            outResult.textContent = "Incorrect!"
-            outResult.setAttribute("class", "alert alert-danger")
-        };
+        // else {
+        //     outResult.textContent = "Incorrect!"
+        //     outResult.setAttribute("class", "alert alert-danger")
+        // };
     };
     userPointsThree();
 
@@ -323,10 +320,10 @@ outAnswer.addEventListener("click", function (e) {
             scores.fourth = 20;
             return scores.fourth;
         }
-        else {
-            outResult.textContent = "Incorrect!"
-            outResult.setAttribute("class", "alert alert-danger")
-        };
+        // else {
+        //     outResult.textContent = "Incorrect!"
+        //     outResult.setAttribute("class", "alert alert-danger")
+        // };
     };
     userPointsFour();
 
@@ -337,47 +334,19 @@ outAnswer.addEventListener("click", function (e) {
             scores.fifth = 20;
             return scores.fifth;
         }
-        else {
-            outResult.textContent = "Incorrect!"
-            outResult.setAttribute("class", "alert alert-danger")
-        };
+        // else {
+        //     outResult.textContent = "Incorrect!"
+        //     outResult.setAttribute("class", "alert alert-danger")
+        // };
     };
     userPointsFifth();
 
-
-    var playerScore = scores.first + scores.second + scores.third + scores.fourth + scores.fifth;
-    console.log(playerScore);
-
-    //     else if (e.target.matches("#answer3")) {
-    //     outResult.textContent = "Correct!";
-    //     outResult.setAttribute("class", "alert alert-success");
-    //     gatherPoints.pointsThree = 20;
-    //     return gatherPoints.pointsThree;
-    // }
-    // else if (e.target.matches("#answer4")) {
-    //     outResult.textContent = "Correct!";
-    //     outResult.setAttribute("class", "alert alert-success");
-    //     gatherPoints.pointsFour = 20;
-    //     return gatherPoints.pointsFour;
-    // }
-    // else if (e.target.matches("#answer5")) {
-    //     outResult.textContent = "Correct!";
-    //     outResult.setAttribute("class", "alert alert-success");
-    //     gatherPoints.pointsFive = 20;
-    //     return gatherPoints.pointsFive;
-    // }
-
-    // }
-
-
-    // userPoints();
-
-
-
 });
-// var totalPoints = gatherPoints.pointsOne + gatherPoints.pointsTwo + gatherPoints.pointsThree + gatherPoints.pointsFour + gatherPoints.pointsFive;
-// console.log(gatherPoints.pointsOne);
 
+// Store score
+var playerScore = scores.first + scores.second + scores.third + scores.fourth + scores.fifth;
+// console.log(playerScore);
+outScore.textContent = "SCORE: " + playerScore;
 
 // Timer for the quiz
 var secondsLeft = 61;
@@ -473,12 +442,14 @@ function gameStart(e) {
         outQuestion.textContent = "";
         outAnswer.setAttribute("class", "");
         outResult.setAttribute("class", "text-center");
-        outResult.textContent = player.name;
-        outResult.append.textContent = player.name;
+        outResult.textContent = "Save your score above " + player.name + "!";
+        inSubmit.textContent = "SAVE";
+        inSubmit.setAttribute("id", "save");
+
     };
 
 };
-console.log(player.name);
+// console.log(player.name);
 
 
 
