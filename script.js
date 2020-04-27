@@ -287,7 +287,7 @@ function screenTimer() {
         clearInterval(timerInterval);
         inSubmit.textContent = "GAME OVER";
         inSubmit.setAttribute("id", "finish");
-        
+
     }
 };
 
@@ -351,7 +351,7 @@ function gameStart(e) {
             inSubmit.setAttribute("id", "finish");
 
     }
-    // Clear for score
+    // Clear screen for player score
     else if (e.target.matches("#finish")) {
 
         clearScreen = function () {
@@ -368,3 +368,11 @@ function gameStart(e) {
     };
 
 };
+
+console.log(score);
+var score = scores.first + scores.second + scores.third;
+var scores = {
+    first: 20,
+    second: 20,
+    third: 20,
+
