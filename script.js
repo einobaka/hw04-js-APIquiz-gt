@@ -27,37 +27,37 @@ var qAndA = {
     },
 
     qAndATwo: function () {
-        qAndA.firstQuestion = "question test 2 ";
-        qAndA.firstAnswer = "answer 1-2 ";
-        qAndA.secondAnswer = "answer 2-2 ";
-        qAndA.thirdAnswer = "answer 3-2 ";
-        qAndA.fourthAnswer = "answer 4-2 ";
+        qAndA.firstQuestion = "What does DOM stand for in JavaScript?";
+        qAndA.firstAnswer = "Dont Over Master";
+        qAndA.secondAnswer = "Document Obstructing Malfunction";
+        qAndA.thirdAnswer = "Document Order Model";
+        qAndA.fourthAnswer = "Document Object Model";
 
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
     },
 
     qAndAThree: function () {
-        qAndA.firstQuestion = "question test 3 ";
-        qAndA.firstAnswer = "answer 1-3 ";
-        qAndA.secondAnswer = "answer 2-3 ";
-        qAndA.thirdAnswer = "answer 3-3 ";
-        qAndA.fourthAnswer = "answer 4-3 ";
+        qAndA.firstQuestion = "What does API stand for in terms programming language?";
+        qAndA.firstAnswer = "Any Program Interface";
+        qAndA.secondAnswer = "Apple Product Integration";
+        qAndA.thirdAnswer = "Application Programming Interface";
+        qAndA.fourthAnswer = "Alliance Programmers Incorporated";
 
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
     },
 
     qAndAFour: function () {
-        qAndA.firstQuestion = "question test 4 ";
-        qAndA.firstAnswer = "answer 1-4 ";
-        qAndA.secondAnswer = "answer 2-4 ";
-        qAndA.thirdAnswer = "answer 3-4 ";
-        qAndA.fourthAnswer = "answer 4-4 ";
+        qAndA.firstQuestion = "Which of the following tags necessary in order to run JavaScript in a HTML page?";
+        qAndA.firstAnswer = "<link></link>";
+        qAndA.secondAnswer = "<script></script>";
+        qAndA.thirdAnswer = "<p></p>";
+        qAndA.fourthAnswer = "<java></java>";
 
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
     },
 
     qAndAFive: function () {
-        qAndA.firstQuestion = "question test 5 ";
+        qAndA.firstQuestion = "What are the types of loops in JavaScript?";
         qAndA.firstAnswer = "answer 1-5 ";
         qAndA.secondAnswer = "answer 2-5 ";
         qAndA.thirdAnswer = "answer 3-5 ";
@@ -68,7 +68,6 @@ var qAndA = {
 
 };
 
-var qOnePoints = "";
 //Answer blocks for the quiz
 blockOne = function () {
 
@@ -86,35 +85,26 @@ blockOne = function () {
     outAnswer.append(answerList1);
     // Correct answer insert
     answerList1.setAttribute("id", "answer");
-    qOnePoints = 20;
 
     // Answer block one - answer 2
     answerList2 = document.createElement("li");
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
     outAnswer.append(answerList2);
-    qOnePoints = -20;
 
     // Answer block one - answer 3
     answerList3 = document.createElement("li");
     answerList3.textContent = qAndA.thirdAnswer;
     answerList3.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList3);
-    qOnePoints = -20;
 
     // Answer block one - answer 4
     answerList4 = document.createElement("li");
     answerList4.textContent = qAndA.fourthAnswer;
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList4);
-    qOnePoints = -20;
-
-    return qOnePoints;
-
 
 };
-console.log(qOnePoints);
-
 
 blockTwo = function () {
 
@@ -148,6 +138,7 @@ blockTwo = function () {
     outAnswer.append(answerList4);
     // Correct answer insert
     answerList4.setAttribute("id", "answer");
+    score.second = 20;
 
 };
 
@@ -177,6 +168,7 @@ blockThree = function () {
     outAnswer.append(answerList3);
     // Correct answer insert
     answerList3.setAttribute("id", "answer");
+    score.third = 20;
 
     // Answer block three - answer 4
     answerList4 = document.createElement("li");
@@ -239,8 +231,9 @@ blockFive = function () {
     answerList2.textContent = qAndA.secondAnswer;
     answerList2.setAttribute("class", "list-group-item list-group-item-action")
     // Correct answer insert
-    answerList2.setAttribute("id", "answer");
     outAnswer.append(answerList2);
+    answerList2.setAttribute("id", "answer");
+    answerList2.value = 20;
 
     // Answer block five - answer 3
     answerList3 = document.createElement("li");
@@ -256,23 +249,29 @@ blockFive = function () {
 
 };
 
+// Click event listenser for answers // point addition
 outAnswer.addEventListener("click", function (e) {
     e.preventDefault();
-
     e.target.setAttribute("class", "list-group-item list-group-item-action active");
     outAnswer.setAttribute("class", "list-group-item disabled");
 
     if (e.target.matches("#answer")) {
         outResult.textContent = "Correct!";
         outResult.setAttribute("class", "alert alert-success");
-
+        var points = "";
+        for (let i = 0; i < 1; i++) {
+            points += 20;
+        }
+        outScore.textContent = points;
+        console.log(points);
     }
     else {
         outResult.textContent = "Incorrect!"
         outResult.setAttribute("class", "alert alert-danger")
+    }
 
-    };
 });
+
 // Timer for the quiz
 var secondsLeft = 61;
 var timerInterval;
@@ -287,8 +286,8 @@ function screenTimer() {
         clearInterval(timerInterval);
         inSubmit.textContent = "GAME OVER";
         inSubmit.setAttribute("id", "finish");
-
     }
+
 };
 
 // Game start where user hits "submit" and kicks off the game
@@ -355,16 +354,26 @@ function gameStart(e) {
     else if (e.target.matches("#finish")) {
 
         clearScreen = function () {
+
             while (outAnswer.hasChildNodes()) {
                 outAnswer.removeChild(outAnswer.childNodes[0]);
             }
+            clearInterval(timerInterval);
             outAnswer.setAttribute("class", "");
             outQuestion.setAttribute("class", "")
             outQuestion.textContent = "";
             outResult.setAttribute("class", "")
-            outResult.textContent = "";
+            return inSubmit.textContent = "RESULTS",
+                inSubmit.setAttribute("id", "results");
+
         };
         clearScreen();
-    };
 
+    }
+    else if (e.target.matches("#finish")) {
+        return outResult.textContent = playerName;
+    };
 };
+
+
+
