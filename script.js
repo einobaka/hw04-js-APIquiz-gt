@@ -57,11 +57,11 @@ var qAndA = {
     },
 
     qAndAFive: function () {
-        qAndA.firstQuestion = "What are the types of loops in JavaScript?";
-        qAndA.firstAnswer = "answer 1-5 ";
-        qAndA.secondAnswer = "answer 2-5 ";
-        qAndA.thirdAnswer = "answer 3-5 ";
-        qAndA.fourthAnswer = "answer 4-5 ";
+        qAndA.firstQuestion = "Whice of the following aretypes of loops in JavaScript?";
+        qAndA.firstAnswer = "for, there, are, many ";
+        qAndA.secondAnswer = "for, for/in, while, for/of";
+        qAndA.thirdAnswer = "one, two, three, for";
+        qAndA.fourthAnswer = "over, under, for, never";
 
         return qAndA.firstQuestion + qAndA.firstAnswer + qAndA.secondAnswer + qAndA.thirdAnswer + qAndA.fourthAnswer
     },
@@ -294,6 +294,7 @@ function screenTimer() {
 inSubmit.addEventListener("click", gameStart);
 function gameStart(e) {
     // First question block and player name for storage
+    var theName = playerName;
     if (e.target.matches("#submit")) {
         var playerName = prompt("Please enter your name.");
         blockOne();
@@ -301,7 +302,8 @@ function gameStart(e) {
         return inPlayer.textContent = playerName,
             inSubmit.textContent = "Next Question",
             inSubmit.setAttribute("id", "submit1"),
-            console.log(playerName);
+            console.log(playerName),
+            playerName;
     }
     // Second question block
     else if (e.target.matches("#submit1")) {
@@ -353,26 +355,35 @@ function gameStart(e) {
     // Clear screen for player score
     else if (e.target.matches("#finish")) {
 
-        clearScreen = function () {
+        while (outAnswer.hasChildNodes()) {
+            outAnswer.removeChild(outAnswer.childNodes[0]);
+        }
+        clearInterval(timerInterval);
+        outQuestion.setAttribute("class", "")
+        outQuestion.textContent = "";
+        outAnswer.setAttribute("class", "");
+        outResult.setAttribute("class", "");
+        outResult.textContent = theName;
 
-            while (outAnswer.hasChildNodes()) {
-                outAnswer.removeChild(outAnswer.childNodes[0]);
-            }
-            clearInterval(timerInterval);
-            outAnswer.setAttribute("class", "");
-            outQuestion.setAttribute("class", "")
-            outQuestion.textContent = "";
-            outResult.setAttribute("class", "")
-            return inSubmit.textContent = "RESULTS",
-                inSubmit.setAttribute("id", "results");
+        // clearScreen = function () {
 
-        };
-        clearScreen();
+        //     while (outAnswer.hasChildNodes()) {
+        //         outAnswer.removeChild(outAnswer.childNodes[0]);
+        //     }
+        //     clearInterval(timerInterval);
+        //     outAnswer.setAttribute("class", "");
+        //     outQuestion.setAttribute("class", "")
+        //     outQuestion.textContent = "";
+        //     outResult.setAttribute("class", "")
+        //     outResult.textContent = "";
+        //     return inSubmit.textContent = "RESULTS",
+        //         inSubmit.setAttribute("id", "results");
+        // };
+        // clearScreen();
 
-    }
-    else if (e.target.matches("#finish")) {
-        return outResult.textContent = playerName;
+
     };
+
 };
 
 
