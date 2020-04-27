@@ -1,6 +1,6 @@
 var inPlayer = document.querySelector("#player");
 var inSubmit = document.querySelector("#submit");
-var outHiTimer = document.querySelector("#timer");
+var outTimer = document.querySelector("#timer");
 var outScore = document.querySelector("#score");
 var outHiScore = document.querySelector("#hiscore");
 var outQuestion = document.querySelector("#question");
@@ -108,9 +108,9 @@ blockOne = function () {
     answerList4.setAttribute("class", "list-group-item list-group-item-action");
     outAnswer.append(answerList4);
     qOnePoints = -20;
-    
+
     return qOnePoints;
-    
+
 
 };
 console.log(qOnePoints);
@@ -273,19 +273,32 @@ outAnswer.addEventListener("click", function (e) {
 
     };
 });
+// Timer for the quiz
+var secondsLeft = 61;
+var timerInterval;
+function theTimer() {
+    timerInterval = setInterval(screenTimer, 1000);
+};
 
+function screenTimer() {
+    secondsLeft--;
+    outTimer.textContent = secondsLeft;
+    if (secondsLeft === 0) {
+        clearInterval(timerInterval);
+        inSubmit.textContent = "GAME OVER";
+        inSubmit.setAttribute("id", "finish");
+        
+    }
+};
 
-
-
-// Grab player information and store it later
-
+// Game start where user hits "submit" and kicks off the game
 inSubmit.addEventListener("click", gameStart);
 function gameStart(e) {
-    //First question block and player name for storage
+    // First question block and player name for storage
     if (e.target.matches("#submit")) {
         var playerName = prompt("Please enter your name.");
         blockOne();
-        // scoreKeeper();
+        theTimer()
         return inPlayer.textContent = playerName,
             inSubmit.textContent = "Next Question",
             inSubmit.setAttribute("id", "submit1"),
@@ -334,21 +347,24 @@ function gameStart(e) {
         blockFive();
         outResult.textContent = "";
         outResult.setAttribute("class", "");
-        return inSubmit.textContent = "FINISH",
+        return inSubmit.textContent = "GAME OVER",
             inSubmit.setAttribute("id", "finish");
 
     }
     // Clear for score
     else if (e.target.matches("#finish")) {
-        while (outAnswer.hasChildNodes()) {
-            outAnswer.removeChild(outAnswer.childNodes[0]);
-        }
-        outAnswer.setAttribute("class", "");
-        outQuestion.setAttribute("class", "")
-        outQuestion.textContent = "";
-        outResult.setAttribute("class", "")
-        outResult.textContent = "";
-    };
 
+        clearScreen = function () {
+            while (outAnswer.hasChildNodes()) {
+                outAnswer.removeChild(outAnswer.childNodes[0]);
+            }
+            outAnswer.setAttribute("class", "");
+            outQuestion.setAttribute("class", "")
+            outQuestion.textContent = "";
+            outResult.setAttribute("class", "")
+            outResult.textContent = "";
+        };
+        clearScreen();
+    };
 
 };
