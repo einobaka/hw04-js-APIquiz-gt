@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCRIPT TEST PAGE</title>
 </head>
+
 <body>
 
-<script>
-    
-</script>
-    
+    <script>
+
+        var scores = {
+            first: 0,
+            second: 0,
+            third: 0,
+        };
+
+        test1 = function () {
+            scores.first = 20;
+            return scores.first;
+        };
+        test1();
+
+        test2 = function () {
+            scores.second = 20;
+            return scores.second;
+        };
+        test2();
+
+        test3 = function () {
+            scores.third = 20;
+            return scores.third;
+        };
+        test3();
+
+        var score = scores.first + scores.second + scores.third;
+        console.log(score);
+
+    </script>
+
 </body>
+
 </html>

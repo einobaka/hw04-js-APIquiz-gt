@@ -368,11 +368,3 @@ function gameStart(e) {
     };
 
 };
-
-console.log(score);
-var score = scores.first + scores.second + scores.third;
-var scores = {
-    first: 20,
-    second: 20,
-    third: 20,
-
