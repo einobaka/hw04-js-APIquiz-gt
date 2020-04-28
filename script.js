@@ -378,7 +378,7 @@ outAnswer.addEventListener("click", function (e) {
 var player = {
     name: "",
 };
-
+userLastScore();
 inSubmit.addEventListener("click", gameStart);
 function gameStart(e) {
 
@@ -452,22 +452,16 @@ function gameStart(e) {
         outAnswer.setAttribute("class", "");
         outResult.textContent = "";
         outResult.setAttribute("class", "");
-        inSubmit.textContent = "SAVE SCORE";
-        inSubmit.setAttribute("id", "save");
+        inSubmit.textContent = "SAVE SCORE & RESTART";
+        // Save to locale storage and restart game
         localStorage.setItem("name", JSON.stringify(player.name));
         localStorage.setItem("score", JSON.stringify(scores.total));
-
-    }
-    else if (e.target.matches("#save")) {
-        userLastScore = function () {
-            player.name = JSON.parse(localStorage.getItem("name"));
-            scores.total = JSON.parse(localStorage.getItem("score"));
-            outHiScore.textContent = "NAME: " + player.name + " SCORE: " + scores.total;
-        };
-        userLastScore();
+        location.reload()
     }
 };
+function userLastScore() {
+    player.name = JSON.parse(localStorage.getItem("name"));
+    scores.total = JSON.parse(localStorage.getItem("score"));
+    outHiScore.textContent = "NAME: " + player.name + " SCORE: " + scores.total;
 
-
-
-
+};
