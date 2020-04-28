@@ -270,9 +270,8 @@ var scores = {
     fourth: 0,
     fifth: 0,
     total: 0,
-    timer: "",
 };
-console.log(scores.timer);
+
 // Click event listenser for answers // point addition
 
 outAnswer.addEventListener("click", function (e) {
@@ -285,8 +284,7 @@ outAnswer.addEventListener("click", function (e) {
             outResult.textContent = "Correct!";
             outResult.setAttribute("class", "alert alert-success");
             scores.first = 20;
-            scores.timer = true;
-            return scores.first, scores.timer;
+            return scores.first;
         }
     };
     userPointsOne();
@@ -296,8 +294,7 @@ outAnswer.addEventListener("click", function (e) {
             outResult.textContent = "Correct!";
             outResult.setAttribute("class", "alert alert-success");
             scores.second = 20;
-            scores.timer = true;
-            return scores.second, scores.timer;
+            return scores.second;
         }
     };
     userPointsTwo();
@@ -307,8 +304,7 @@ outAnswer.addEventListener("click", function (e) {
             outResult.textContent = "Correct!";
             outResult.setAttribute("class", "alert alert-success");
             scores.third = 20;
-            scores.timer = true;
-            return scores.third, scores.timer;
+            return scores.third;
         }
     };
     userPointsThree();
@@ -318,8 +314,7 @@ outAnswer.addEventListener("click", function (e) {
             outResult.textContent = "Correct!";
             outResult.setAttribute("class", "alert alert-success");
             scores.fourth = 20;
-            scores.timer = true;
-            return scores.fourth, scores.timer;
+            return scores.fourth;
         }
 
     };
@@ -330,8 +325,7 @@ outAnswer.addEventListener("click", function (e) {
             outResult.textContent = "Correct!";
             outResult.setAttribute("class", "alert alert-success");
             scores.fifth = 20;
-            scores.timer = true;
-            return scores.fifth, scores.timer;
+            return scores.fifth;
         }
     };
     userPointsFifth();
@@ -340,8 +334,6 @@ outAnswer.addEventListener("click", function (e) {
         if (e.target.matches("#incorrect")) {
             outResult.textContent = "Incorrect!"
             outResult.setAttribute("class", "alert alert-danger")
-            scores.timer = false;
-            return scores.timer;
         };
     };
     incorrect();
@@ -356,12 +348,18 @@ outAnswer.addEventListener("click", function (e) {
 });
 
 // Timer for the quiz
+outAnswer.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (e.target.matches("#incorrect")) {
+        secondsLeft - 10;
+    }
+});
 var secondsLeft = 61;
 var timerInterval;
-function theTimer() {
+theTimer = function () {
     timerInterval = setInterval(screenTimer, 1000);
 };
-function screenTimer() {
+screenTimer = function () {
     secondsLeft--;
     outTimer.textContent = secondsLeft;
     outTimer.setAttribute("class", "text-danger")
@@ -370,12 +368,7 @@ function screenTimer() {
         inSubmit.textContent = "GAME OVER";
         inSubmit.setAttribute("id", "finish");
     }
-    else if (scores.timer === false) {
-        secondsLeft - 10;
-    };
-
 };
-
 
 // Game start where user hits "submit" and kicks off the game
 var player = {
