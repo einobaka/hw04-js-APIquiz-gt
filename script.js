@@ -348,7 +348,6 @@ outAnswer.addEventListener("click", function (e) {
 });
 
 // Timer for the quiz
-
 var secondsLeft = 61;
 var timerInterval;
 theTimer = function () {
@@ -364,6 +363,7 @@ screenTimer = function () {
         inSubmit.setAttribute("id", "finish");
     }
 };
+// Subtracts time 5 seconds from the game if user answers incorrectly
 outAnswer.addEventListener("click", function (e) {
     e.preventDefault();
     if (e.target.matches("#incorrect")) {
@@ -374,10 +374,12 @@ outAnswer.addEventListener("click", function (e) {
     };
 });
 
+
 // Game start where user hits "submit" and kicks off the game
 var player = {
     name: "",
 };
+// Calls out user stats from storage and loads before game start
 userLastScore();
 inSubmit.addEventListener("click", gameStart);
 function gameStart(e) {
@@ -453,15 +455,19 @@ function gameStart(e) {
         outResult.textContent = "";
         outResult.setAttribute("class", "");
         inSubmit.textContent = "SAVE SCORE & RESTART";
-        // Save to locale storage and restart game
+        inSubmit.setAttribute("id", "restart");
         localStorage.setItem("name", JSON.stringify(player.name));
         localStorage.setItem("score", JSON.stringify(scores.total));
-        location.reload()
     }
+    else if (e.target.matches("#restart")) {
+        location.reload()
+    };
 };
+
+// User stats from storage
 function userLastScore() {
     player.name = JSON.parse(localStorage.getItem("name"));
     scores.total = JSON.parse(localStorage.getItem("score"));
-    outHiScore.textContent = "NAME: " + player.name + " SCORE: " + scores.total;
+    outHiScore.textContent = "LAST GAME: " + player.name + " with " + scores.total + " points";
 
 };
