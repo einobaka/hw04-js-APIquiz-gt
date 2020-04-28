@@ -379,7 +379,6 @@ outAnswer.addEventListener("click", function (e) {
 var player = {
     name: "",
 };
-
 inSubmit.addEventListener("click", gameStart);
 function gameStart(e) {
 
@@ -388,12 +387,11 @@ function gameStart(e) {
         player.name = prompt("Please enter your name.");
         blockOne();
         theTimer()
-        userLastScore();
         return inPlayer.textContent = "PLAYER: " + player.name,
             inSubmit.textContent = "Next Question",
             inSubmit.setAttribute("id", "submit1"),
-            console.log(player.name),
-            player.name;
+            player.name,
+            console.log(player.name);
     }
     // Second question block
     else if (e.target.matches("#submit1")) {
@@ -444,7 +442,8 @@ function gameStart(e) {
     }
     // Clear screen for player score
     else if (e.target.matches("#finish")) {
-
+        localStorage.setItem("name", JSON.stringify(player.name));
+        localStorage.setItem("score", JSON.stringify(scores.total));
         while (outAnswer.hasChildNodes()) {
             outAnswer.removeChild(outAnswer.childNodes[0]);
         }
@@ -456,15 +455,13 @@ function gameStart(e) {
         outResult.setAttribute("class", "");
         inSubmit.textContent = "SAVE SCORE & RESTART";
         inSubmit.setAttribute("id", "restart");
-        localStorage.setItem("name", JSON.stringify(player.name));
-        localStorage.setItem("score", JSON.stringify(scores.total));
-
     }
     else if (e.target.matches("#restart")) {
         location.reload()
-
     };
 };
+// Call user storage function
+userLastScore();
 
 // User stats from storage
 function userLastScore() {
