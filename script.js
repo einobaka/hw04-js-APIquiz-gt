@@ -356,7 +356,7 @@ theTimer = function () {
 };
 screenTimer = function () {
     secondsLeft--;
-    outTimer.textContent = "Timer: " + secondsLeft;
+    outTimer.textContent = "TIMER: " + secondsLeft;
     outTimer.setAttribute("class", "text-danger")
     if (secondsLeft === 0) {
         clearInterval(timerInterval);

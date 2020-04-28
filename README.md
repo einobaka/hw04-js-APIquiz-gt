@@ -16,7 +16,7 @@ Screenshot of the game when there is a correct answer:
 
 ![Correct Answer](https://github.com/einobaka/hw04-js-APIquiz-gt/blob/master//assets/correct.png)
 
-Screenshot of the game when there is an incorrect answer:
+Screenshot of the game when there is an incorrect answer, also indicating the user lost 5 seconds of time:
 
 ![Incorrect Answer](https://github.com/einobaka/hw04-js-APIquiz-gt/blob/master//assets/incorrect.png)
 
