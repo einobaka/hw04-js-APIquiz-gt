@@ -5,8 +5,8 @@ link to the game: https://einobaka.github.io/hw04-js-APIquiz-gt/index.html
 
 Dev notes:
 The layout is comprised mostly of bootstrap. DOM elements are created with attributes of bootstrap, there are no CSS attributes used directly on this homework.
-This homework was tough, I did not get all the functionality correctly. Missing components such as: score save, and subtract from clock.
 
+Missing components such as: score save
 
 Screenshot of the game started:
 

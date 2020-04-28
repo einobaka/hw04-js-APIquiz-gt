@@ -348,12 +348,7 @@ outAnswer.addEventListener("click", function (e) {
 });
 
 // Timer for the quiz
-outAnswer.addEventListener("click", function (e) {
-    e.preventDefault();
-    if (e.target.matches("#incorrect")) {
-        secondsLeft - 10;
-    }
-});
+
 var secondsLeft = 61;
 var timerInterval;
 theTimer = function () {
@@ -369,6 +364,12 @@ screenTimer = function () {
         inSubmit.setAttribute("id", "finish");
     }
 };
+outAnswer.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (e.target.matches("#incorrect")) {
+        secondsLeft -= 9;
+    }
+});
 
 // Game start where user hits "submit" and kicks off the game
 var player = {
