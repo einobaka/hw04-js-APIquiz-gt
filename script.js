@@ -1,3 +1,4 @@
+// Set variables from HTML page
 var inPlayer = document.querySelector("#player");
 var inSubmit = document.querySelector("#submit");
 var outTimer = document.querySelector("#timer");
@@ -8,7 +9,7 @@ var outAnswer = document.querySelector("#answerblock");
 var outResult = document.querySelector("#result");
 
 
-//create buttons for answers
+// Create buttons for answers
 var qAndA = {
     firstQuestion: "",
     firstAnswer: "",
@@ -68,7 +69,7 @@ var qAndA = {
 
 };
 
-//Answer blocks for the quiz
+// Answer blocks for the quiz
 blockOne = function () {
 
     outAnswer.setAttribute("class", "list-group-item");
@@ -347,11 +348,11 @@ outAnswer.addEventListener("click", function (e) {
     console.log(playerScore);
     outScore.textContent = "SCORE: " + playerScore + " POINTS";
     scores.total = playerScore;
-    return scores.total;
+    return scores.total, console.log(scores.timer);
 
 });
 
-console.log(scores.total);
+
 
 // Timer for the quiz
 var secondsLeft = 61;
@@ -368,8 +369,12 @@ function screenTimer() {
         inSubmit.textContent = "GAME OVER";
         inSubmit.setAttribute("id", "finish");
     }
+    else if (scores.timer === false) {
+        secondsLeft - 10;
+    };
 
 };
+console.log(scores.timer);
 
 // Game start where user hits "submit" and kicks off the game
 var player = {
