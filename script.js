@@ -338,7 +338,7 @@ outAnswer.addEventListener("click", function (e) {
     // Store score
     var playerScore = scores.first + scores.second + scores.third + scores.fourth + scores.fifth;
     console.log(playerScore);
-    outScore.textContent = "SCORE: " + playerScore;
+    outScore.textContent = "SCORE: " + playerScore + " POINTS";
     scores.total = playerScore;
     return scores.total;
 
@@ -346,18 +346,16 @@ outAnswer.addEventListener("click", function (e) {
 
 console.log(scores.total);
 
-
-
 // Timer for the quiz
 var secondsLeft = 61;
 var timerInterval;
 function theTimer() {
     timerInterval = setInterval(screenTimer, 1000);
 };
-
 function screenTimer() {
     secondsLeft--;
     outTimer.textContent = secondsLeft;
+    outTimer.setAttribute("class", "text-danger")
     if (secondsLeft === 0) {
         clearInterval(timerInterval);
         inSubmit.textContent = "GAME OVER";
@@ -370,6 +368,7 @@ function screenTimer() {
 var player = {
     name: "",
 };
+
 inSubmit.addEventListener("click", gameStart);
 function gameStart(e) {
     // First question block and player name for storage
@@ -378,7 +377,7 @@ function gameStart(e) {
         player.name = prompt("Please enter your name.");
         blockOne();
         theTimer()
-        return inPlayer.textContent = player.name,
+        return inPlayer.textContent = "PLAYER: " + player.name,
             inSubmit.textContent = "Next Question",
             inSubmit.setAttribute("id", "submit1"),
             console.log(player.name),
@@ -441,15 +440,15 @@ function gameStart(e) {
         outQuestion.setAttribute("class", "")
         outQuestion.textContent = "";
         outAnswer.setAttribute("class", "");
-        outResult.setAttribute("class", "text-center");
-        outResult.textContent = "Save your score above " + player.name + "!";
-        inSubmit.textContent = "SAVE";
+        outResult.textContent = "";
+        outResult.setAttribute("class", "");
+        inSubmit.textContent = "SAVE SCORE";
         inSubmit.setAttribute("id", "save");
 
     };
 
 };
-// console.log(player.name);
+
 
 
 
