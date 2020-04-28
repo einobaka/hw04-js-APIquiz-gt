@@ -4,7 +4,7 @@ Homework 04 - Javascript - API quiz
 link to the game: https://einobaka.github.io/hw04-js-APIquiz-gt/index.html
 
 Dev notes:
-The layout is comprised mostly of bootstrap. DOM elements are created with attributes of bootstrap, there are no CSS attributes used directly on this homework. When the player starts the game, they are prompted with a series of question. Each wrong answer will subtract 5 seconds from the timer. Once the player reaches the end, they are able to save the score and restart the game.
+The layout is comprised mostly of bootstrap. DOM elements are created with attributes of bootstrap, there are no CSS attributes used directly on this homework. When the player starts the game, they are prompted with a series of questions. Each wrong answer will subtract 5 seconds from the timer. Once the player reaches the end, they are able to save the score and restart the game.
 
 Screenshot of the game started:
 
