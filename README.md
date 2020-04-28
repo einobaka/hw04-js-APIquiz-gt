@@ -20,4 +20,8 @@ Screenshot of the game when there is an incorrect answer:
 
 ![Incorrect Answer](https://github.com/einobaka/hw04-js-APIquiz-gt/blob/master//assets/incorrect.png)
 
+Screnshot of the game when the player saves their score and local storage:
+
+![User Last Score](https://github.com/einobaka/hw04-js-APIquiz-gt/blob/master//assets/scoreandstore.png)
+
 

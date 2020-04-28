@@ -332,7 +332,7 @@ outAnswer.addEventListener("click", function (e) {
 
     incorrect = function () {
         if (e.target.matches("#incorrect")) {
-            outResult.textContent = "Incorrect, time subtracted!"
+            outResult.textContent = "Incorrect, you just lost 5 seconds!"
             outResult.setAttribute("class", "alert alert-danger")
         };
     };
@@ -456,6 +456,7 @@ function gameStart(e) {
         inSubmit.setAttribute("id", "save");
         localStorage.setItem("name", JSON.stringify(player.name));
         localStorage.setItem("score", JSON.stringify(scores.total));
+
     }
     else if (e.target.matches("#save")) {
         userLastScore = function () {
