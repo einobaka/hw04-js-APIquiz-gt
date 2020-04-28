@@ -367,8 +367,11 @@ screenTimer = function () {
 outAnswer.addEventListener("click", function (e) {
     e.preventDefault();
     if (e.target.matches("#incorrect")) {
-        secondsLeft -= 9;
+        secondsLeft -= 5;
     }
+    else if (secondsLeft === 0) {
+        clearInterval(timerInterval);
+    };
 });
 
 // Game start where user hits "submit" and kicks off the game
