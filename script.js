@@ -379,8 +379,7 @@ outAnswer.addEventListener("click", function (e) {
 var player = {
     name: "",
 };
-// Calls out user stats from storage and loads before game start
-userLastScore();
+
 inSubmit.addEventListener("click", gameStart);
 function gameStart(e) {
 
@@ -389,6 +388,7 @@ function gameStart(e) {
         player.name = prompt("Please enter your name.");
         blockOne();
         theTimer()
+        userLastScore();
         return inPlayer.textContent = "PLAYER: " + player.name,
             inSubmit.textContent = "Next Question",
             inSubmit.setAttribute("id", "submit1"),
@@ -458,9 +458,11 @@ function gameStart(e) {
         inSubmit.setAttribute("id", "restart");
         localStorage.setItem("name", JSON.stringify(player.name));
         localStorage.setItem("score", JSON.stringify(scores.total));
+
     }
     else if (e.target.matches("#restart")) {
         location.reload()
+
     };
 };
 
