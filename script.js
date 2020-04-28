@@ -332,7 +332,7 @@ outAnswer.addEventListener("click", function (e) {
 
     incorrect = function () {
         if (e.target.matches("#incorrect")) {
-            outResult.textContent = "Incorrect!"
+            outResult.textContent = "Incorrect, time subtracted!"
             outResult.setAttribute("class", "alert alert-danger")
         };
     };
@@ -378,8 +378,8 @@ var player = {
 
 inSubmit.addEventListener("click", gameStart);
 function gameStart(e) {
-    // First question block and player name for storage
 
+    // First question block and player name for storage
     if (e.target.matches("#submit")) {
         player.name = prompt("Please enter your name.");
         blockOne();
