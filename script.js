@@ -269,6 +269,7 @@ var scores = {
     fourth: 0,
     fifth: 0,
     total: 0,
+    timer: "",
 };
 
 // Click event listenser for answers // point addition
@@ -283,7 +284,8 @@ outAnswer.addEventListener("click", function (e) {
             outResult.textContent = "Correct!";
             outResult.setAttribute("class", "alert alert-success");
             scores.first = 20;
-            return scores.first;
+            scores.timer = true;
+            return scores.first, scores.timer;
         }
     };
     userPointsOne();
@@ -293,7 +295,8 @@ outAnswer.addEventListener("click", function (e) {
             outResult.textContent = "Correct!";
             outResult.setAttribute("class", "alert alert-success");
             scores.second = 20;
-            return scores.second;
+            scores.timer = true;
+            return scores.second, scores.timer;
         }
     };
     userPointsTwo();
@@ -303,7 +306,8 @@ outAnswer.addEventListener("click", function (e) {
             outResult.textContent = "Correct!";
             outResult.setAttribute("class", "alert alert-success");
             scores.third = 20;
-            return scores.third;
+            scores.timer = true;
+            return scores.third, scores.timer;
         }
     };
     userPointsThree();
@@ -313,7 +317,8 @@ outAnswer.addEventListener("click", function (e) {
             outResult.textContent = "Correct!";
             outResult.setAttribute("class", "alert alert-success");
             scores.fourth = 20;
-            return scores.fourth;
+            scores.timer = true;
+            return scores.fourth, scores.timer;
         }
 
     };
@@ -324,7 +329,8 @@ outAnswer.addEventListener("click", function (e) {
             outResult.textContent = "Correct!";
             outResult.setAttribute("class", "alert alert-success");
             scores.fifth = 20;
-            return scores.fifth;
+            scores.timer = true;
+            return scores.fifth, scores.timer;
         }
     };
     userPointsFifth();
@@ -332,8 +338,9 @@ outAnswer.addEventListener("click", function (e) {
     if (e.target.matches("#incorrect")) {
         outResult.textContent = "Incorrect!"
         outResult.setAttribute("class", "alert alert-danger")
+        scores.timer = false;
+        return scores.timer;
     };
-
 
     // Store score
     var playerScore = scores.first + scores.second + scores.third + scores.fourth + scores.fifth;
