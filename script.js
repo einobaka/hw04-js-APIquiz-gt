@@ -272,7 +272,7 @@ var scores = {
     total: 0,
     timer: "",
 };
-
+console.log(scores.timer);
 // Click event listenser for answers // point addition
 
 outAnswer.addEventListener("click", function (e) {
@@ -336,23 +336,24 @@ outAnswer.addEventListener("click", function (e) {
     };
     userPointsFifth();
 
-    if (e.target.matches("#incorrect")) {
-        outResult.textContent = "Incorrect!"
-        outResult.setAttribute("class", "alert alert-danger")
-        scores.timer = false;
-        return scores.timer;
+    incorrect = function () {
+        if (e.target.matches("#incorrect")) {
+            outResult.textContent = "Incorrect!"
+            outResult.setAttribute("class", "alert alert-danger")
+            scores.timer = false;
+            return scores.timer;
+        };
     };
+    incorrect();
 
     // Store score
     var playerScore = scores.first + scores.second + scores.third + scores.fourth + scores.fifth;
     console.log(playerScore);
     outScore.textContent = "SCORE: " + playerScore + " POINTS";
     scores.total = playerScore;
-    return scores.total, console.log(scores.timer);
+    return scores.total;
 
 });
-
-
 
 // Timer for the quiz
 var secondsLeft = 61;
@@ -374,7 +375,7 @@ function screenTimer() {
     };
 
 };
-console.log(scores.timer);
+
 
 // Game start where user hits "submit" and kicks off the game
 var player = {
