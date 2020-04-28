@@ -436,7 +436,7 @@ function gameStart(e) {
         blockFive();
         outResult.textContent = "";
         outResult.setAttribute("class", "");
-        return inSubmit.textContent = "GAME OVER",
+        return inSubmit.textContent = "FINAL SUBMIT",
             inSubmit.setAttribute("id", "finish");
 
     }
@@ -454,9 +454,17 @@ function gameStart(e) {
         outResult.setAttribute("class", "");
         inSubmit.textContent = "SAVE SCORE";
         inSubmit.setAttribute("id", "save");
-
-    };
-
+        localStorage.setItem("name", JSON.stringify(player.name));
+        localStorage.setItem("score", JSON.stringify(scores.total));
+    }
+    else if (e.target.matches("#save")) {
+        userLastScore = function () {
+            player.name = JSON.parse(localStorage.getItem("name"));
+            scores.total = JSON.parse(localStorage.getItem("score"));
+            outHiScore.textContent = "NAME: " + player.name + " SCORE: " + scores.total;
+        };
+        userLastScore();
+    }
 };
 
 
